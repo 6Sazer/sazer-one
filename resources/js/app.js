@@ -8,6 +8,15 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+window.VueRouter = require("vue-router");
+
+
+
+const routes = [
+    { path: '/', component: {template :"<home></home>"} },
+    { path: '/archives', component: { template: '<passport-clients></passport-clients>' } },
+];
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,8 +38,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router,
 });
 
+const router = new VueRouter({
+    routes,
+});
 
 Vue.component(
     'passport-clients',
